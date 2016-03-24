@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
+  resources :orders
   get 'index/homepage'
-
-  devise_for :users
+    devise_for :users
   resources :users
   root 'index#homepage'
   # The priority is based upon order of creation: first created -> highest priority.

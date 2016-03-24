@@ -1,0 +1,140 @@
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<%= form_for(@order) do |f| %>
+  <% if @order.errors.any? %>
+    <div id="error_explanation">
+   <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+      <ul>
+      <% @order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row">
+  <div class="col-md-8">
+<div class="w3-container w3-teal" style="border: 2px solid black ">
+   <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name ,:class => "form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :contact %><br>
+    <%= f.text_field :contact,:class => "form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :house %><br>
+    <%= f.text_field :house ,:class => "form-control"%>
+  </div>
+  <div class="field">
+    <%= f.label :street %><br>
+    <%= f.text_field :street ,:class => "form-control"%>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city,:class => "form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :postal %><br>
+    <%= f.text_field :postal,:class => "form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :province %><br>
+    <%= f.text_field :province,:class => "form-control" %>
+   </div>
+   </div>
+ </div>
+  <div class="col-md-4"></div>
+</div>
+  
+  
+<div class="row">
+  <div class="col-md-6">
+ <div class="w3-container w3-teal">
+  <h1>Select Pizza Crust:</h1>
+</div>
+     <div class="active" style="border: 2px solid black">
+            <%= f.label :size  %><br>
+            <%= f.radio_button :size, 'Small' %> Small<br />
+            <%= f.radio_button :size, 'Medium' %> Medium<br />
+            <%= f.radio_button :size, 'Large' %> Large<br />
+            <%= f.radio_button :size, 'X-Large' %> X-Large<br />
+          </div>
+  </div>
+  <div class="col-md-6">
+    <div class="w3-container w3-teal">
+  <h1>Select Pizza Crust:</h1>
+</div>
+
+        <div class="field" style="border: 2px solid black">
+          <%= f.label :crust %><br>
+          <%= f.radio_button :crust, 'Regular' %> Regular<br />
+          <%= f.radio_button :crust, 'Stuff_Crust' %> Stuff Crust<br />
+          <%= f.radio_button :crust, 'Crunchy_Thin' %> Crunchy Thin<br />
+          <%= f.radio_button :crust, 'Thick' %> Thick<br />
+        </div>
+  </div>
+</div>
+  
+<div class="row" >
+  <div class="col-md-6">
+    <div class="w3-container w3-teal">
+  <h1>Select Toppings:</h1>
+</div>
+<div class="w3-container">
+        <div class="field" style="border: 2px solid black ">
+          <%= f.label :toppings %><br>
+          
+          <%= check_box_tag 'order[toppings][]', 'Onion', checked('Onion'), id:'orders_toppings' %> 
+          <%= label_tag 'orders_toppings', 'Onion' %><br>
+
+          <%= check_box_tag 'order[toppings][]', 'GreenPepper', checked('GreenPepper'), id:'orders_toppings' %>
+          <%= label_tag 'orders_toppings', 'GreenPepper' %><br>
+          
+          <%= check_box_tag 'order[toppings][]', 'Pineapple', checked('Pineapple'), id:'orders_toppings' %>
+          <%= label_tag 'orders_toppings', 'Pineapple' %><br>
+          
+          <%= check_box_tag 'order[toppings][]', 'Mashroom', checked('Mashroom'), id:'orders_toppings' %>
+          <%= label_tag 'orders_toppings', 'Mashroom' %><br>
+          
+          <%= check_box_tag 'order[toppings][]', 'Tomato', checked('Tomato'), id:'orders_toppings' %>
+          <%= label_tag 'orders_toppings', 'Tomato' %><br>
+          <%= check_box_tag 'order[toppings][]', 'GreenOlives', checked('GreenOlives'), id:'orders_toppings' %>
+          <%= label_tag 'orders_toppings', 'GreenOlives' %><br>
+          
+          <%= check_box_tag 'order[toppings][]', 'BlackOlives', checked('BlackOlives'), id:'orders_toppings' %>
+          <%= label_tag 'orders_toppings', 'BlackOlives' %><br>
+          
+          <%= check_box_tag 'order[toppings][]', 'Chicken', checked('Chicken'), id:'orders_toppings' %>
+          <%= label_tag 'orders_toppings', 'Chicken' %><br>
+          
+          <%= check_box_tag 'order[toppings][]', 'Bacon', checked('Bacon'), id:'orders_toppings' %>
+          <%= label_tag 'orders_toppings', 'Bacon' %><br>
+          
+          <%= check_box_tag 'order[toppings][]', 'Ham', checked('Ham'), id:'orders_toppings' %>
+          <%= label_tag 'orders_toppings', 'Ham' %><br>
+        </div>
+  </div>
+</div>
+</div>
+
+      <div class="field">
+        <%= f.label :number %><br>
+    <%= f.text_field :number,:class => "form-control" %>
+</div>
+      <div class="actions">
+        <%= f.submit:order, :class=> "btn btn-success" %>
+      </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  
+<% end %>
